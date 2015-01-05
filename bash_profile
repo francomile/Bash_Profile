@@ -41,6 +41,29 @@ alias lt='ls -ltr'      #  Sort by date, most recent last.
 alias lc='ls -ltc'      #  Sort by/show change time,most recent first.
 alias lu='ls -ltu'      #  Sort by/show access time,most recent first.
 
+# Network aliases:
+#=================
+
+alias pubip='curl ip.appspot.com'   	    # My public IP address
+alias netlisten='lsof -i -P | grep LISTEN'  # Find active network listeners
+alias pingle='ping google.com'              # Ping google.com
+alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'  # Network Speedtest
+
+
+# Other aliases:
+#================
+
+alias passwdgen='dd if=/dev/random bs=16 count=1 2>/dev/null | base64 | sed 's/=//g''   # passwd generator
+alias ltree='tree -C | less -R'              # Tree current dir with colors
+alias memhog='ps -o time,ppid,pid,nice,pcpu,pmem,user,comm -A | sort -n -k 6 | tail -15'  # Whats eating your memory
+alias sar5='sar 1 5'                         # First five consuming processes
+alias df='df -h'			     # Disk space usage in human readable form
+alias ..='cd ..'			     # Upper parent directory
+alias ...='cd ../../'                        # Two upper parent directory
+alias big='du -ks *| sort -n'    	     # Find the biggest in a folder
+alias big10='du -cks *|sort -rn|head -11'    # list top ten largest files/directories in current dir
+alias msg='wall'   			     # Broadcast message to all users
+
 
 # Find Aliases:
 #==============
