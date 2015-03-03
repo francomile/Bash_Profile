@@ -6,7 +6,9 @@
 #=================
 
 export CLICOLOR=1
-export PS1="\[$(tput setaf 4)\][\[$(tput setaf 5)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 5)\]\h \[$(tput setaf 6)\]\W\[$(tput setaf 4)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 2)\]\u\[$(tput bold)\]\[$(tput setaf 7)\]@\[$(tput setaf 2)\]\h\[$(tput setaf 5)\] \W\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+
+
 
 # Grep and Ls color settings:
 #============================
@@ -54,6 +56,8 @@ alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlay
 #================
 
 alias passwdgen='dd if=/dev/random bs=16 count=1 2>/dev/null | base64 | sed 's/=//g''   # passwd generator
+#Yet another Password generator. You can change the last number to your needs: 
+alias genpass='openssl rand -base64 9'
 alias ltree='tree -C | less -R'              # Tree current dir with colors
 alias memhog='ps -o time,ppid,pid,nice,pcpu,pmem,user,comm -A | sort -n -k 6 | tail -15'  # Whats eating your memory
 alias sar5='sar 1 5'                         # First five consuming processes
