@@ -1,7 +1,3 @@
-
-# This is a simple custom .bash_profile file for Mac OS.
-#=======================================================
-
 # Prompt settings:
 #=================
 
@@ -13,24 +9,29 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 2)\]\u\[$(tput bold)\]\[$(tput setaf 
 # Grep and Ls color settings:
 #============================
 
-export GREP_OPTIONS='--color=auto'  # Tell grep to highlight matches
-export LSCOLORS=ExFxBxDxCxegedabagacad
+export GREP_OPTIONS='--color=auto'       # Tell grep to highlight matches
+export LSCOLORS=ExFxBxDxCxegedabagacad   # Ls colors
 
 
 # Common use Aliases:
 #====================
 
-alias st='open -a "Sublime Text"'
-alias server='python -m SimpleHTTPServer'
-alias profile='open -a "Sublime Text" ~/.bash_profile'
+# if user is not root, pass all commands via sudo: 
+if [ $UID -ne 0 ]; then
+    alias reboot='sudo reboot'
+    alias poweroff='sudo poweroff'
+    alias upgradeb='sudo apt-get update && sudo apt-get -y upgrade'   # Upgrade Debian based distros
+    alias upgraderel='sudo yum -y update'                             # Upgrade RHEL based distros without removing obsolete 
+fi
 alias ghome='cd ~/Desktop'
 alias getc='cd /etc'
-alias goutput='cd /private/var/log'
+alias goutput='cd /var/log'
 alias gtmp='cd /tmp'
 alias gdocs='cd ~/Documents'
 alias c='clear'
-alias shut='shutdown -h now'
 alias vi='vim'
+
+
 
 # Ls Aliases:
 #============
@@ -50,6 +51,10 @@ alias pubip='curl ip.appspot.com'   	    # My public IP address
 alias netlisten='lsof -i -P | grep LISTEN'  # Find active network listeners
 alias pingle='ping google.com'              # Ping google.com
 alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'  # Network Speedtest
+#Query all DNS records in a domain:
+digdomain() {
+    dig -tAXFR $1
+}
 
 
 # Other aliases:
@@ -61,12 +66,12 @@ alias genpass='openssl rand -base64 9'
 alias ltree='tree -C | less -R'              # Tree current dir with colors
 alias memhog='ps -o time,ppid,pid,nice,pcpu,pmem,user,comm -A | sort -n -k 6 | tail -15'  # Whats eating your memory
 alias sar5='sar 1 5'                         # First five consuming processes
-alias df='df -h'			     # Disk space usage in human readable form
-alias ..='cd ..'			     # Upper parent directory
+alias df='df -h'			                 # Disk space usage in human readable form
+alias ..='cd ..'			                 # Upper parent directory
 alias ...='cd ../../'                        # Two upper parent directory
-alias big='du -ks *| sort -n'    	     # Find the biggest in a folder
+alias big='du -ks *| sort -n'    	         # Find the biggest in a folder
 alias big10='du -cks *|sort -rn|head -11'    # list top ten largest files/directories in current dir
-alias msg='wall'   			     # Broadcast message to all users
+alias msg='wall'   			                 # Broadcast message to all users
 
 
 # Find Aliases:
