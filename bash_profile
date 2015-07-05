@@ -72,7 +72,8 @@ alias ...='cd ../../'                        # Two upper parent directory
 alias big='du -ks *| sort -n'    	         # Find the biggest in a folder
 alias big10='du -cks *|sort -rn|head -11'    # list top ten largest files/directories in current dir
 alias msg='wall'   			                 # Broadcast message to all users
-
+alias phpmod='apt-cache search ^php5- | awk {'printf $1 " "'} | sed 's\php5-dbg\\g' |  sed 's\php5-mysqlnd\\g' | sed 's\php5-xcache\\g' | sed 's\php5-fpm\\g' |  sed 's\ -ms\\g'| xargs sudo apt-get -y install
+'  # install almost all php modules in Debian based systems.
 
 # Find Aliases:
 #==============
