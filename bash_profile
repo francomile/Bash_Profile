@@ -114,3 +114,6 @@ if [ -f ~/.git-completion.bash ]; then
 source ~/.git-completion.bash
 fi
 
+#Export $PATH:
+PATH=$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+export PATH
