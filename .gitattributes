@@ -30,7 +30,7 @@
 *.cpp text
 *.run text
 *.bash text
-Vagrant text
+Vagrantfile text
 .htaccess text
 .bashrc text
 .vimrc text
