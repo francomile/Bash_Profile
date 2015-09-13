@@ -51,7 +51,7 @@ alias pubip='curl ip.appspot.com'   	    # My public IP address
 alias netlisten='lsof -i -P | grep LISTEN'  # Find active network listeners
 alias pingle='ping google.com'              # Ping google.com
 alias speedtest='wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip'  # Network Speedtest
-alias wifi='airport -s'  # Get information for 802.11 interface
+alias wifi='airport -s'  # Get information for 802.11 interface - Mac OS  only
 alias connections='lsof |grep -i established' # See al established connections
 #Query all DNS records in a domain:
 digdomain() {
